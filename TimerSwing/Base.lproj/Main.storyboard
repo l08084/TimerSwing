@@ -17,20 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Qj-aa-wCZ">
-                                <rect key="frame" x="0.0" y="176" width="600" height="216"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Qj-aa-wCZ">
+                                <rect key="frame" x="0.0" y="177" width="600" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="481122655.16604501">
                                     <!--2016-03-31 13:10:55 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="DateSetting:" destination="BYZ-38-t0r" eventType="valueChanged" id="Dld-8Y-owS"/>
+                                </connections>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Gl-sEz">
+                                <rect key="frame" x="285" y="454" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="DateDecide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AZr-2X-pXF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ia3-Cp-VC9">
+                                <rect key="frame" x="279" y="102" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ia3-Cp-VC9" firstAttribute="centerX" secondItem="8Qj-aa-wCZ" secondAttribute="centerX" id="Aha-4P-ssJ"/>
                             <constraint firstItem="8Qj-aa-wCZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CN7-Gg-RAt"/>
+                            <constraint firstItem="bH4-Gl-sEz" firstAttribute="top" secondItem="8Qj-aa-wCZ" secondAttribute="bottom" constant="62" id="Lq3-CL-EMZ"/>
+                            <constraint firstItem="bH4-Gl-sEz" firstAttribute="centerX" secondItem="8Qj-aa-wCZ" secondAttribute="centerX" id="RGf-ng-88w"/>
+                            <constraint firstItem="8Qj-aa-wCZ" firstAttribute="top" secondItem="Ia3-Cp-VC9" secondAttribute="bottom" constant="54" id="WWn-X7-WPe"/>
                             <constraint firstItem="8Qj-aa-wCZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="156" id="cS6-V9-M2H"/>
                             <constraint firstAttribute="trailing" secondItem="8Qj-aa-wCZ" secondAttribute="trailing" id="hb5-iL-Kd6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateForm" destination="8Qj-aa-wCZ" id="3Pg-ag-g3K"/>
+                        <outlet property="timeLabel" destination="Ia3-Cp-VC9" id="vTC-Nm-vba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
