@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -34,6 +35,23 @@ class ViewController: UIViewController {
         setTime = tempTime
         // test print
         print("test: myButton Pushed!")
+        
+        let alarm = Alarm()
+        alarm.id = 1
+        alarm.repeatCalendar = "everyDay"
+        alarm.enable = true
+        
+        // デフォルトRealmを取得する
+        let realm = try! Realm()
+        
+        // Realmファイルが現在配置されている場所を表示
+        print("realm:\(realm.path)")
+        
+        // トランザクションを開始して、オブジェクトをRealmに追加する
+        try! realm.write {
+            realm.add(alarm, update: true)
+            //realm.add(alarm)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
