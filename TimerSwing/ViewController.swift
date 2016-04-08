@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     // Date Pickerを回すと呼び出し
     @IBAction func DateSetting(sender: AnyObject) {
+        /*
         // test print
         print("test: myDP moved!")
         // DPの値を成形
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         format.dateFormat = "HH:mm"
         // 一時的にDPの値を保持
         tempTime = format.stringFromDate(dateForm.date)
+        */
     }
     
     /// OKボタン押下すると呼び出し
@@ -40,6 +42,8 @@ class ViewController: UIViewController {
         alarm.id = 1
         alarm.repeatCalendar = "everyDay"
         alarm.enable = true
+        // date pickerでセットした値を代入
+        alarm.alartTime = dateForm.date
         
         // デフォルトRealmを取得する
         let realm = try! Realm()
