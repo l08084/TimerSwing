@@ -20,23 +20,13 @@ class ViewController: UIViewController {
     
     // Date Pickerを回すと呼び出し
     @IBAction func DateSetting(sender: AnyObject) {
-        /*
-        // test print
-        print("test: myDP moved!")
-        // DPの値を成形
-        let format = NSDateFormatter()
-        format.dateFormat = "HH:mm"
-        // 一時的にDPの値を保持
-        tempTime = format.stringFromDate(dateForm.date)
-        */
+        
     }
     
     /// OKボタン押下すると呼び出し
     @IBAction func DateDecide(sender: AnyObject) {
         // アラームをセット
         setTime = tempTime
-        // test print
-        print("test: myButton Pushed!")
         
         // デフォルトRealmを取得する
         let realm = try! Realm()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B00EA2B41CB5323100512B6A /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00EA2B31CB5323100512B6A /* Alarm.swift */; };
+		B00EA2B61CB9163F00512B6A /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00EA2B51CB9163F00512B6A /* SetTimerViewController.swift */; };
 		B04AB4A51CAD59360008C911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AB4A41CAD59360008C911 /* AppDelegate.swift */; };
 		B04AB4A71CAD59360008C911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AB4A61CAD59360008C911 /* ViewController.swift */; };
 		B04AB4AA1CAD59360008C911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04AB4A81CAD59360008C911 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		A8E531EF49727BAAFBE44FB8 /* Pods-TimerSwing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerSwing.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerSwing/Pods-TimerSwing.release.xcconfig"; sourceTree = "<group>"; };
 		B00EA2B31CB5323100512B6A /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		B00EA2B51CB9163F00512B6A /* SetTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		B04AB4A11CAD59360008C911 /* TimerSwing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerSwing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04AB4A41CAD59360008C911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B04AB4A61CAD59360008C911 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				B04AB4AD1CAD59360008C911 /* LaunchScreen.storyboard */,
 				B04AB4B01CAD59360008C911 /* Info.plist */,
 				B00EA2B31CB5323100512B6A /* Alarm.swift */,
+				B00EA2B51CB9163F00512B6A /* SetTimerViewController.swift */,
 			);
 			path = TimerSwing;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				B04AB4A71CAD59360008C911 /* ViewController.swift in Sources */,
 				B04AB4A51CAD59360008C911 /* AppDelegate.swift in Sources */,
 				B00EA2B41CB5323100512B6A /* Alarm.swift in Sources */,
+				B00EA2B61CB9163F00512B6A /* SetTimerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
