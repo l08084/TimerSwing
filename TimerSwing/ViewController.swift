@@ -38,8 +38,11 @@ class ViewController: UIViewController {
         // test print
         print("test: myButton Pushed!")
         
+        // デフォルトRealmを取得する
+        let realm = try! Realm()
+        
         // 既存IDの最大値を取得
-        var maxId: Int { return try! Realm().objects(Alarm).sorted("id").last?.id ?? 0 }
+        var maxId: Int { return realm.objects(Alarm).sorted("id").last?.id ?? 0 }
         
         let alarm = Alarm()
         // 既存データのID最大値+1
@@ -48,9 +51,6 @@ class ViewController: UIViewController {
         alarm.enable = true
         // date pickerでセットした値を代入
         alarm.alartTime = dateForm.date
-        
-        // デフォルトRealmを取得する
-        let realm = try! Realm()
         
         // Realmファイルが現在配置されている場所を表示
         print("realm:\(realm.path)")
