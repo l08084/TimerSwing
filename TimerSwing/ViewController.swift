@@ -38,8 +38,12 @@ class ViewController: UIViewController {
         // test print
         print("test: myButton Pushed!")
         
+        // 既存IDの最大値を取得
+        var maxId: Int { return try! Realm().objects(Alarm).sorted("id").last?.id ?? 0 }
+        
         let alarm = Alarm()
-        alarm.id = 1
+        // 既存データのID最大値+1
+        alarm.id = maxId + 1
         alarm.repeatCalendar = "everyDay"
         alarm.enable = true
         // date pickerでセットした値を代入
