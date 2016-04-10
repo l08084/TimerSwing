@@ -43,7 +43,7 @@
                                 <rect key="frame" x="277" y="522" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="aea-9R-hHC" kind="presentation" id="1v8-gc-PYR"/>
+                                    <segue destination="aea-9R-hHC" kind="presentation" id="JHg-5F-JGy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="-638"/>
+            <point key="canvasLocation" x="3383" y="-1156"/>
         </scene>
         <!--Set Timer View Controller-->
         <scene sceneID="5zq-3w-fOI">
@@ -84,14 +84,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RYo-Pk-LJb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6eg-66-XXB">
-                                    <rect key="frame" x="0.0" y="72" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <segue destination="BYZ-38-t0r" kind="presentation" id="cm4-sv-oTF"/>
-                                    </connections>
-                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" textLabel="Gh6-oM-Cz4" detailTextLabel="i6B-d5-cQL" style="IBUITableViewCellStyleSubtitle" id="y8N-3Y-9u1">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -122,10 +114,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="beforeView" id="YOf-do-ClO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRh-Ce-1Fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1391" y="-646"/>
+            <point key="canvasLocation" x="2442" y="-1220"/>
         </scene>
     </scenes>
 </document>

@@ -48,6 +48,8 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("Num: \(indexPath.row)")
         print("Value: \(myItems[indexPath.row])")
+        
+        performSegueWithIdentifier("beforeView", sender: nil)
     }
     
     /*
