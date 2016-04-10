@@ -18,6 +18,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateForm: UIDatePicker!
     @IBOutlet weak var timeLabel: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Realm(DB)の初期設定をスタート
+        let repo = Repository()
+        
+        // 起動した時点の時刻をmyLabelに反映
+        timeLabel.text = getNowTime()
+        // 時間管理してくれる
+        _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     // Date Pickerを回すと呼び出し
     @IBAction func DateSetting(sender: AnyObject) {
         
@@ -31,8 +49,10 @@ class ViewController: UIViewController {
         // デフォルトRealmを取得する
         let realm = try! Realm()
         
+        let repo = Repository()
+        
         // 既存IDの最大値を取得
-        var maxId: Int { return realm.objects(Alarm).sorted("id").last?.id ?? 0 }
+        var maxId = repo.findMaxId()
         
         let alarm = Alarm()
         // 既存データのID最大値+1
@@ -50,20 +70,6 @@ class ViewController: UIViewController {
             realm.add(alarm, update: true)
             //realm.add(alarm)
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // 起動した時点の時刻をmyLabelに反映
-        timeLabel.text = getNowTime()
-        // 時間管理してくれる
-        _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func update() {

@@ -13,7 +13,7 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     private var myTableView: UITableView!
     
     // Tableで使用する配列を設定する
-    private let myItems: NSArray = ["TEST1", "TEST2", "TEST3"]
+    private var myItems: NSArray = ["TEST1", "TEST2", "TEST3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,10 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Delegateを設定する.
         myTableView.delegate = self
+        
+        let repo = Repository()
+        
+        myItems = repo.findAlartTime()
         
         // Viewに追加する.
         self.view.addSubview(myTableView)
