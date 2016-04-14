@@ -38,7 +38,7 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         
         myItems = repo.findAlartTime()
         
-        // Viewに追加する.
+        // Viewに追加する
         self.view.addSubview(myTableView)
     }
     
@@ -75,6 +75,15 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Cellに値を設定する.
         cell.textLabel!.text = "\(myItems[indexPath.row])"
+        
+        // Switchを作成する
+        let mySwitch: UISwitch = UISwitch()
+        
+        // SwitchをOnに設定する
+        mySwitch.on = true
+        
+        // cellの右端にSwitchをレイアウト
+        cell.accessoryView = mySwitch
         
         return cell
     }
