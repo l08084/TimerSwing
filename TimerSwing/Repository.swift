@@ -53,6 +53,13 @@ public class Repository {
         // 条件に該当するキャラは一つなので、一つだけ戻す
         return maxId
     }
+    
+    func findAlarm() -> Results<Alarm> {
+        
+        let alarms = realm.objects(Alarm)
+        
+        return alarms
+    }
 
     
 }

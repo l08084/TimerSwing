@@ -13,7 +13,9 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     private var myTableView: UITableView!
     
     // Tableで使用する配列を設定する
-    private var myItems: NSArray = ["TEST1", "TEST2", "TEST3"]
+    private var alartTimes: [String] = []
+    
+    private var enables: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,18 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let repo = Repository()
         
-        myItems = repo.findAlartTime()
+        //myItems = repo.findAlartTime()
+        
+        var alarms = repo.findAlarm()
+        
+        // DPの値を成形
+        let format = NSDateFormatter()
+        format.dateFormat = "HH:mm"
+        
+        for alarm in alarms {
+            alartTimes.append(format.stringFromDate(alarm.alartTime))
+            enables.append(alarm.enable)
+        }
         
         // Viewに追加する
         self.view.addSubview(myTableView)
@@ -51,7 +64,7 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("Num: \(indexPath.row)")
-        print("Value: \(myItems[indexPath.row])")
+        print("Value: \(alartTimes[indexPath.row])")
         
         performSegueWithIdentifier("beforeView", sender: nil)
     }
@@ -61,7 +74,7 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     (実装必須)
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myItems.count
+        return alartTimes.count
     }
     
     /*
@@ -74,13 +87,13 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
         
         // Cellに値を設定する.
-        cell.textLabel!.text = "\(myItems[indexPath.row])"
+        cell.textLabel!.text = "\(alartTimes[indexPath.row])"
         
         // Switchを作成する
         let mySwitch: UISwitch = UISwitch()
         
         // SwitchをOnに設定する
-        mySwitch.on = true
+        mySwitch.on = enables[indexPath.row]
         
         // cellの右端にSwitchをレイアウト
         cell.accessoryView = mySwitch
