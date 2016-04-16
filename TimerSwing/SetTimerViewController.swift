@@ -95,9 +95,21 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         // SwitchをOnに設定する
         mySwitch.on = enables[indexPath.row]
         
+        // SwitchのOn/Off切り替わりの際に、呼ばれるイベントを設定する
+        mySwitch.addTarget(self, action: "onClickMySwitch:", forControlEvents: UIControlEvents.ValueChanged)
+        
         // cellの右端にSwitchをレイアウト
         cell.accessoryView = mySwitch
         
         return cell
+    }
+    
+    internal func onClickMySwitch(sender: UISwitch) {
+        
+        if sender.on {
+            print("On")
+        } else {
+            print("OFF")
+        }
     }
 }
