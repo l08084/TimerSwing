@@ -17,6 +17,10 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private var enables: [Bool] = []
     
+    private var alartId: [Int] = []
+    
+    var repo: Repository = Repository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,17 +40,16 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         // Delegateを設定する.
         myTableView.delegate = self
         
-        let repo = Repository()
+        repo = Repository()
         
-        //myItems = repo.findAlartTime()
-        
-        var alarms = repo.findAlarm()
+        let alarms = repo.findAlarm()
         
         // DPの値を成形
         let format = NSDateFormatter()
         format.dateFormat = "HH:mm"
         
         for alarm in alarms {
+            alartId.append(alarm.id)
             alartTimes.append(format.stringFromDate(alarm.alartTime))
             enables.append(alarm.enable)
         }
@@ -104,12 +107,26 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    
+    /// UISwitchを切り替えたインデックスを取得
     internal func onClickMySwitch(sender: UISwitch) {
         
-        if sender.on {
-            print("On")
-        } else {
-            print("OFF")
+        var hoge = sender.superview
+        
+        //
+        while(hoge!.isKindOfClass(UITableViewCell) == false) {
+            hoge = hoge!.superview
         }
+        
+        let cell = hoge as! UITableViewCell
+        
+        // touchIndexは選択したセルが何番目かを記録しておくプロパティ
+        // indexPathForCellの引数が、UITableViewCellでなければいけないので、
+        // 上の処理でUISwitchをUITableViewCellに変換している
+        // 正直コピペなのでよくわかっていない
+        let touchIndex = self.myTableView.indexPathForCell(cell)
+        
+        print("\(touchIndex!.row)番目")
     }
+    
 }

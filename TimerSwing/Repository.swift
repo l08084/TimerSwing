@@ -60,6 +60,10 @@ public class Repository {
         
         return alarms
     }
+    
+    func saveAlarmEnable(id: Int) {
+        
+    }
 
     
 }

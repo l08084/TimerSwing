@@ -22,9 +22,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // Realm(DB)の初期設定をスタート
-        let repo = Repository()
-        
         // 起動した時点の時刻をmyLabelに反映
         timeLabel.text = getNowTime()
         // 時間管理してくれる
@@ -52,7 +49,7 @@ class ViewController: UIViewController {
         let repo = Repository()
         
         // 既存IDの最大値を取得
-        var maxId = repo.findMaxId()
+        let maxId = repo.findMaxId()
         
         let alarm = Alarm()
         // 既存データのID最大値+1
