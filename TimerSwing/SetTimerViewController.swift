@@ -113,7 +113,6 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         
         var hoge = sender.superview
         
-        //
         while(hoge!.isKindOfClass(UITableViewCell) == false) {
             hoge = hoge!.superview
         }
@@ -126,7 +125,18 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         // 正直コピペなのでよくわかっていない
         let touchIndex = self.myTableView.indexPathForCell(cell)
         
-        print("\(touchIndex!.row)番目")
+        // UISitchを切り替えたセルがどれかを表示
+        print("\(touchIndex!.row)番目のUISwitchを切り替えました")
+        print("時間は、\(alartTimes[touchIndex!.row])")
+        print("IDは、\(alartId[touchIndex!.row])")
+        
+        let alarm = Alarm()
+        alarm.id = alartId[touchIndex!.row]
+        // スイッチを切り替えると、enableが反転される
+        alarm.enable = !enables[touchIndex!.row]
+        
+        repo.saveAlarmEnable(alarm)
+        
     }
     
 }

@@ -61,7 +61,12 @@ public class Repository {
         return alarms
     }
     
-    func saveAlarmEnable(id: Int) {
+    func saveAlarmEnable(alarm: Alarm) {
+        print("save:\(alarm.enable)")
+        try! realm.write {
+            // realm.add(alarm, update: true)
+            realm.create(Alarm.self, value: ["id": alarm.id, "enable": alarm.enable], update: true)
+        }
         
     }
 
