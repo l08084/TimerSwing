@@ -14,6 +14,16 @@ class ViewController: UIViewController {
     private var tempTime: String = "00:00"
     private var setTime: String = "00:00"
     
+    var repo: Repository = Repository()
+    
+    private var alartTimes: [String] = []
+    
+    private var enables: [Bool] = []
+    
+    private var alartId: [Int] = []
+    
+    private var onAlartTime: [String] = []
+    
     // Date Picker
     @IBOutlet weak var dateForm: UIDatePicker!
     @IBOutlet weak var timeLabel: UILabel!
@@ -26,6 +36,30 @@ class ViewController: UIViewController {
         timeLabel.text = getNowTime()
         // 時間管理してくれる
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+        
+        repo = Repository()
+        
+        let alarms = repo.findAlarm()
+        
+        // 値を成形
+        let format = NSDateFormatter()
+        format.dateFormat = "HH:mm"
+        
+        for alarm in alarms {
+            alartId.append(alarm.id)
+            alartTimes.append(format.stringFromDate(alarm.alartTime))
+            enables.append(alarm.enable)
+        }
+        
+        for i in 0..<alartTimes.count {
+            if enables[i] {
+                onAlartTime.append(alartTimes[i])
+            }
+        }
+        
+        for time in onAlartTime {
+            print("onAlartTime:\(time)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +69,7 @@ class ViewController: UIViewController {
     
     // Date Pickerを回すと呼び出し
     @IBAction func DateSetting(sender: AnyObject) {
+        
         
     }
     
@@ -65,7 +100,6 @@ class ViewController: UIViewController {
         // トランザクションを開始して、オブジェクトをRealmに追加する
         try! realm.write {
             realm.add(alarm, update: true)
-            //realm.add(alarm)
         }
     }
     
@@ -74,6 +108,7 @@ class ViewController: UIViewController {
         let str = getNowTime()
         // timeLabelに反映
         timeLabel.text = str
+        print("nowtime:\(str)")
         // アラーム鳴らすか判断
         myAlarm(str)
     }
