@@ -12,7 +12,7 @@ import RealmSwift
 class ViewController: UIViewController {
     
     private var tempTime: String = "00:00"
-    private var setTime: String = "00:00"
+    //private var setTime: String = "00:00"
     
     var repo: Repository = Repository()
     
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     /// OKボタン押下すると呼び出し
     @IBAction func DateDecide(sender: AnyObject) {
         // アラームをセット
-        setTime = tempTime
+        //setTime = tempTime
         
         // デフォルトRealmを取得する
         let realm = try! Realm()
@@ -105,18 +105,20 @@ class ViewController: UIViewController {
     
     func update() {
         // 現在時刻を取得
-        let str = getNowTime()
+        let nowTime = getNowTime()
         // timeLabelに反映
-        timeLabel.text = str
-        print("nowtime:\(str)")
+        timeLabel.text = nowTime
+        print("nowtime:\(nowTime)")
         // アラーム鳴らすか判断
-        myAlarm(str)
+        myAlarm(nowTime)
     }
     
-    func myAlarm(str: String) {
+    func myAlarm(nowTime: String) {
         // 現在時刻が設定時刻と一緒なら
-        if str == setTime {
-            alert()
+        for setTime in onAlartTime {
+            if nowTime == setTime {
+                alert()
+            }
         }
     }
     /// アラートの表示
