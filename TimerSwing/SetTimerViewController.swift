@@ -21,6 +21,8 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var repo: Repository = Repository()
     
+    private var myButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +58,21 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Viewに追加する
         self.view.addSubview(myTableView)
+        
+        myButton = UIButton()
+        
+        // ボタンを生成する.
+        myButton.frame = CGRectMake(0, 0, 60, 60)
+        myButton.backgroundColor = UIColor.redColor()
+        myButton.setTitle("New", forState: .Normal)
+        myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        myButton.layer.masksToBounds = true
+        myButton.layer.cornerRadius = 30.0
+        myButton.layer.position = CGPointMake(self.view.frame.width/2, self.view.frame.height-100)
+        //myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
+        
+        // ボタンを追加する.
+        self.view.addSubview(myButton)
     }
     
     override func didReceiveMemoryWarning() {
