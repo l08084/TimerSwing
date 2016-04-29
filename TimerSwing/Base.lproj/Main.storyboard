@@ -26,9 +26,9 @@
                                     <action selector="DateSetting:" destination="BYZ-38-t0r" eventType="valueChanged" id="Dld-8Y-owS"/>
                                 </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Gl-sEz">
-                                <rect key="frame" x="285" y="454" width="30" height="30"/>
-                                <state key="normal" title="OK"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Gl-sEz">
+                                <rect key="frame" x="257" y="454" width="76" height="30"/>
+                                <state key="normal" title="Alarm Set"/>
                                 <connections>
                                     <action selector="DateDecide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AZr-2X-pXF"/>
                                 </connections>
@@ -39,9 +39,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWD-K2-mOI">
-                                <rect key="frame" x="277" y="522" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWD-K2-mOI">
+                                <rect key="frame" x="233" y="522" width="115" height="30"/>
+                                <state key="normal" title="Go Alarm List"/>
                                 <connections>
                                     <segue destination="aea-9R-hHC" kind="presentation" id="JHg-5F-JGy"/>
                                 </connections>

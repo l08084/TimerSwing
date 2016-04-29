@@ -12,8 +12,8 @@ import RealmSwift
 class ViewController: UIViewController {
     
     private var tempTime: String = "00:00"
-    //private var setTime: String = "00:00"
     
+    // DBアクセスクラスをインスタンス化
     var repo: Repository = Repository()
     
     private var alartTimes: [String] = []

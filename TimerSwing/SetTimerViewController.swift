@@ -64,15 +64,22 @@ class SetTimerViewController: UIViewController, UITableViewDataSource, UITableVi
         // ボタンを生成する.
         myButton.frame = CGRectMake(0, 0, 60, 60)
         myButton.backgroundColor = UIColor.redColor()
-        myButton.setTitle("New", forState: .Normal)
+        myButton.setTitle("Back", forState: .Normal)
         myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         myButton.layer.masksToBounds = true
         myButton.layer.cornerRadius = 30.0
         myButton.layer.position = CGPointMake(self.view.frame.width/2, self.view.frame.height-100)
-        //myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
+        myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         
         // ボタンを追加する.
         self.view.addSubview(myButton)
+    }
+    
+    /*
+    ボタンのアクション時に設定したメソッド.
+    */
+    internal func onClickMyButton(sender: UIButton){
+        performSegueWithIdentifier("beforeView", sender: nil)
     }
     
     override func didReceiveMemoryWarning() {
